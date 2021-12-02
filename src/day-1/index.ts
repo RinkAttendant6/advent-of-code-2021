@@ -1,15 +1,7 @@
-import fs from 'node:fs/promises';
-import { dirname } from 'node:path';
 import process from 'node:process';
-import { fileURLToPath } from 'node:url';
+import { parseNumericInput } from '../common/utils.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-const input = (
-    await fs.readFile(process.argv[2] ?? __dirname + '/input.txt', 'utf-8')
-)
-    .split('\n')
-    .map(Number);
+const input = parseNumericInput(process.argv[2]);
 
 /**
  * Find the number of increases in an array of numbers
